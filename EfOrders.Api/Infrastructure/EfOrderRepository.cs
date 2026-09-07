@@ -22,5 +22,11 @@ namespace EfOrders.Api.Infrastructure
                 .SingleOrDefaultAsync(
                     order => order.Id == id);
         }
+
+        public async Task Create(Order order)
+        {
+            context.Orders.Add(order);
+            await context.SaveChangesAsync();
+        }
     }
 }

@@ -1,11 +1,14 @@
 using EfOrders.Api.Core.DomainServices;
 using EfOrders.Api.Data;
 using EfOrders.Api.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("OrdersDb");
 builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
-builder.Services.AddScoped<OrdersDbContext>();
+builder.Services.AddDbContext<OrdersDbContext>(
+    options =>
+        options.UseSqlServer(
+            builder.Configuration.GetConnectionString("OrdersDb")));
 var app = builder.Build();
 app.UseHttpsRedirection();
 app.MapGet("/orders", async (IOrderRepository repository) =>
