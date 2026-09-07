@@ -8,7 +8,18 @@ builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
 builder.Services.AddDbContext<OrdersDbContext>(
     options =>
         options.UseSqlServer(
-            builder.Configuration.GetConnectionString("OrdersDb")));
+            builder.Configuration.GetConnectionString("OrdersDb"))
+            .LogTo(
+                Console.WriteLine,
+                new[]
+                {
+                    DbLoggerCategory
+                        .Database
+                        .Command
+                        .Name
+                },
+                LogLevel.Information)
+        );
 var app = builder.Build();
 app.UseHttpsRedirection();
 app.MapGet("/orders", async (IOrderRepository repository) =>
