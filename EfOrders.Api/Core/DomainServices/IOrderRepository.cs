@@ -1,4 +1,4 @@
-﻿using EfOrders.Api.Models;
+﻿using EfOrders.Api.Infrastructure.Models;
 
 namespace EfOrders.Api.Core.DomainServices
 {

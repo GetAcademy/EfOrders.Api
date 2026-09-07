@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using EfOrders.Api.Models;
+﻿using EfOrders.Api.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EfOrders.Api.Data;
+namespace EfOrders.Api.Infrastructure.Data;
 
 public partial class OrdersDbContext : DbContext
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EfOrders.Api.Models;
+namespace EfOrders.Api.Infrastructure.Models;
 
 public partial class Order
 {

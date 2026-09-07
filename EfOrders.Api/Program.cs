@@ -1,6 +1,6 @@
 using EfOrders.Api.Core.DomainServices;
-using EfOrders.Api.Data;
 using EfOrders.Api.Infrastructure;
+using EfOrders.Api.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

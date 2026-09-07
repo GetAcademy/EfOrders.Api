@@ -1,6 +1,6 @@
 ﻿using EfOrders.Api.Core.DomainServices;
-using EfOrders.Api.Data;
-using EfOrders.Api.Models;
+using EfOrders.Api.Infrastructure.Data;
+using EfOrders.Api.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EfOrders.Api.Infrastructure
