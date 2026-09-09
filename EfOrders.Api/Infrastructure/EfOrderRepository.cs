@@ -14,6 +14,14 @@ namespace EfOrders.Api.Infrastructure
                 .ToListAsync();
         }
 
+        //public async Task<List<Order>> GetAllIncludeCustomerAsync()
+        //{
+        //    return await context
+        //        .Orders
+        //        .Include(o=>o.Customer)
+        //        .ToListAsync();
+        //}
+
 
         public async Task<Order?> FindAsync(int id)
         {
