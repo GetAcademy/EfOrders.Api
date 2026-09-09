@@ -35,5 +35,9 @@ app.MapGet("/orders/{id:int}", async (int id, IOrderRepository repository) =>
         ? Results.NotFound()
         : Results.Ok(order);
 });
+app.MapGet("/demo1", async (IOrderRepository repository) =>
+{
+    return await repository.GetOrdersAboveTotal1000();
+});
 
 app.Run();

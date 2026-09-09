@@ -7,5 +7,7 @@ namespace EfOrders.Api.Core.DomainServices
         Task<List<Order>> GetAllAsync();
 
         Task<Order?> FindAsync(int id);
+
+        Task<List<Order>> GetOrdersAboveTotal1000();
     }
 }
