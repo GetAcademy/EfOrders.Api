@@ -9,5 +9,7 @@ namespace EfOrders.Api.Core.DomainServices
         Task<Order?> FindAsync(int id);
 
         Task<List<Order>> GetOrdersAboveTotal1000();
+
+        Task<List<CustomerWithOrderCount>> GetCustomers();
     }
 }

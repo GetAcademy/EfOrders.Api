@@ -36,7 +36,7 @@ namespace EfOrders.Api.Infrastructure
             /* Versjon 1 - filtrering i databasen*/
             return await context
                 .Orders
-                .Where(o=>o.TotalAmount>1000)
+                .Where(o => o.TotalAmount > 1000)
                 .ToListAsync();
 
             var orders1 = context.Orders;
@@ -47,12 +47,21 @@ namespace EfOrders.Api.Infrastructure
             return await context
                 .Orders
                 .AsAsyncEnumerable()
-                .Where(o=>o.TotalAmount>1000)
+                .Where(o => o.TotalAmount > 1000)
                 .ToListAsync();
 
             var orders2 = context.Orders.AsAsyncEnumerable(); // her skjer spørringen mot db
             var filteredOrders2 = orders2.Where(o => o.TotalAmount > 1000); // skjer i minnet
             return await filteredOrders2.ToListAsync();
+        }
+
+        public async Task<List<CustomerWithOrderCount>> GetCustomers()
+        {
+            var result =
+                await context.Customers
+                    .Select(c => new CustomerWithOrderCount(c.Name, c.Orders.Count))
+                    .ToListAsync();
+            return result;
         }
 
         public async Task Create(Order order)

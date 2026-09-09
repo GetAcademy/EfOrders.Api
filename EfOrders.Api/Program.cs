@@ -40,4 +40,9 @@ app.MapGet("/demo1", async (IOrderRepository repository) =>
     return await repository.GetOrdersAboveTotal1000();
 });
 
+app.MapGet("/demo2", async (IOrderRepository repository) =>
+{
+    return await repository.GetCustomers();
+});
+
 app.Run();
